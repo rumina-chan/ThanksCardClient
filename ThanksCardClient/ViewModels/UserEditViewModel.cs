@@ -21,12 +21,12 @@ namespace ThanksCardClient.ViewModels
         }
         #endregion
 
-        #region DepartmentsProperty
-        private List<Department> _Departments;
-        public List<Department> Departments
+        #region DepartmentChildrensProperty
+        private List<DepartmentChildren> _DepartmentChildrens;
+        public List<DepartmentChildren> DepartmentChildrens
         {
-            get { return _Departments; }
-            set { SetProperty(ref _Departments, value); }
+            get { return _DepartmentChildrens; }
+            set { SetProperty(ref _DepartmentChildrens, value); }
         }
         #endregion
 
@@ -40,8 +40,8 @@ namespace ThanksCardClient.ViewModels
             // 画面遷移元から送られる SelectedUser パラメーターを取得。
             this.User = navigationContext.Parameters.GetValue<User>("SelectedUser");
 
-            Department dept = new Department();
-            this.Departments = await dept.GetDepartmentsAsync();
+            DepartmentChildren dept = new DepartmentChildren();
+            this.DepartmentChildrens = await dept.GetDepartmentChildrensAsync();
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
